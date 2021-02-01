@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/26 22:00:56 by donghwik          #+#    #+#             */
-/*   Updated: 2021/02/01 01:11:24 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/02/01 19:07:18 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define OPEN_MAX 100
+
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 100
-#  define OPEN_MAX 100
 # endif
 
 typedef	struct		s_node
