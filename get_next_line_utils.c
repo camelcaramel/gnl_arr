@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 23:33:51 by donghwik          #+#    #+#             */
-/*   Updated: 2021/02/01 01:07:22 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/02/01 19:35:28 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,25 @@ int		cut_set(char **arr, int index, char **line, int fd)
 	char			*temp;
 	char			*node_temp;
 	int				i;
-	int				r_index;
 	int				len;
 
 	len = (int)ft_strlen(arr[fd]);
-	if (!(temp = (char *)malloc(sizeof(char) * (index + 1)))
-			|| !(node_temp = (char *)malloc(sizeof(char) * (len - index))))
+	if (!(temp = (char *)malloc(sizeof(char) * (index + 1))))
 		return (-1);
+	if (!(node_temp = (char *)malloc(sizeof(char) * (len - index))))
+	{
+		free(temp);
+		return (-1);
+	}
 	i = -1;
 	while (++i < index)
 		temp[i] = arr[fd][i];
 	temp[i++] = '\0';
 	*line = temp;
-	r_index = 0;
+	len = 0;
 	while (i < len)
-		node_temp[r_index++] = arr[fd][i++];
-	node_temp[r_index] = '\0';
+		node_temp[len++] = arr[fd][i++];
+	node_temp[len] = '\0';
 	temp = arr[fd];
 	arr[fd] = node_temp;
 	free(temp);
