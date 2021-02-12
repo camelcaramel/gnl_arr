@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 23:33:51 by donghwik          #+#    #+#             */
-/*   Updated: 2021/02/01 19:40:42 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/02/12 20:33:07 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,7 @@ int		cut_set(char **arr, int index, char **line, int fd)
 	while (++i < len)
 		node_temp[i] = arr[fd][i + index + 1];
 	node_temp[i] = '\0';
-	temp = arr[fd];
-	arr[fd] = node_temp;
-	free(temp);
+	flush_arr(arr, fd, node_temp);
 	return (1);
 }
 
@@ -77,6 +75,20 @@ int		glue(char **arr, char *buf, int bufsize, int fd)
 	arr[fd] = temp;
 	free(node_temp);
 	return (1);
+}
+
+void	flush_arr(char **arr, int fd, char *temp)
+{
+	char	*node_temp;
+
+	node_temp = arr[fd];
+	arr[fd] = temp;
+	free(node_temp);
+	if (ft_strlen(arr[fd]) == 0)
+	{
+		free(arr[fd]);
+		arr[fd] = 0;
+	}
 }
 
 int		free_buf_return(int ret, char *buf)
