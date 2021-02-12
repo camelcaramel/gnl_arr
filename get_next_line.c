@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 23:33:47 by donghwik          #+#    #+#             */
-/*   Updated: 2021/02/13 01:38:18 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/02/13 01:43:24 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int		line_handler(int fd, char *buf, char **arr, char **line)
 		{
 			if (ft_strlen(arr[fd]) == 0)
 			{
-				if (!(*line = (char *)malloc(sizeof(char))))
+				if (*line[0] != '\0' || !(*line = (char *)malloc(sizeof(char))))
 					return (free_buf_return(-1, buf));
 				*line[0] = '\0';
 				return (free_buf_return(0, buf));
