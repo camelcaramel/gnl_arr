@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 23:33:47 by donghwik          #+#    #+#             */
-/*   Updated: 2021/02/13 01:33:25 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/02/13 01:38:18 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		set_line_no_read(char **line, char **arr, int fd)
 		}
 		index++;
 	}
-	if (cut_set(arr, index, line, fd))
+	if (ft_strlen(arr[fd]) == 0 || cut_set(arr, index, line, fd))
 	{
 		free(arr[fd]);
 		arr[fd] = 0;
@@ -70,7 +70,6 @@ int		line_handler(int fd, char *buf, char **arr, char **line)
 			return (free_buf_return(-1, buf));
 		if (ret == 0)
 		{
-			ret = set_line_no_read(line, arr, fd);
 			if (ft_strlen(arr[fd]) == 0)
 			{
 				if (!(*line = (char *)malloc(sizeof(char))))
@@ -78,7 +77,7 @@ int		line_handler(int fd, char *buf, char **arr, char **line)
 				*line[0] = '\0';
 				return (free_buf_return(0, buf));
 			}
-			return (free_buf_return(ret, buf));
+			return (free_buf_return(set_line_no_read(line, arr, fd), buf));
 		}
 		else if (ret > 0)
 		{
