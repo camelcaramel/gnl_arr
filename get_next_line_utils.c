@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 23:33:51 by donghwik          #+#    #+#             */
-/*   Updated: 2021/02/12 20:33:07 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/02/12 23:20:03 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ size_t	ft_strlen(const char *s)
 {
 	const char *temp;
 
-	if (s == NULL)
+	if (s == NULL || s == 0)
 		return (0);
 	temp = s;
 	while (*temp)
