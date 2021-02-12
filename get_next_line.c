@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 23:33:47 by donghwik          #+#    #+#             */
-/*   Updated: 2021/02/12 23:35:19 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/02/12 23:52:54 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,11 @@ int		set_line_no_read(char **line, char **arr, int fd)
 		index++;
 	}
 	if (cut_set(arr, index, line, fd))
+	{
+		free(arr[fd]);
+		arr[fd] = 0;
 		return (0);
+	}
 	return (-1);
 }
 
