@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 23:33:47 by donghwik          #+#    #+#             */
-/*   Updated: 2021/02/13 15:45:54 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/02/13 15:47:18 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		set_line_no_read(char **line, char **arr, int fd)
 int		set_line(char **line, char **arr, char *buf, int fd)
 {
 	unsigned int	index;
-    int				bufsize;
+	int				bufsize;
 
 	index = 0;
 	bufsize = (int)ft_strlen(buf);
