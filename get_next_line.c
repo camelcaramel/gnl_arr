@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 23:33:47 by donghwik          #+#    #+#             */
-/*   Updated: 2021/02/13 15:35:09 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/02/13 15:45:54 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,18 @@ int		set_line_no_read(char **line, char **arr, int fd)
 		}
 		index++;
 	}
-	// if (ft_strlen(arr[fd]) == 0 || cut_set(arr, index, line, fd))
-	// {
-	// 	free(arr[fd]);
-	// 	arr[fd] = 0;
-	// 	return (0);
-	// }
 	if (cut_set(arr, index, line, fd))
-	{
 		return (0);
-	}
 	return (-1);
 }
 
 int		set_line(char **line, char **arr, char *buf, int fd)
 {
 	unsigned int	index;
-    int             bufsize;
+    int				bufsize;
 
 	index = 0;
-    bufsize = (int)ft_strlen(buf);
+	bufsize = (int)ft_strlen(buf);
 	if (!glue(arr, buf, bufsize, fd))
 		return (-1);
 	while (arr[fd][index])
@@ -95,7 +87,7 @@ int		line_handler(int fd, char *buf, char **arr, char **line)
 
 int		get_next_line(int fd, char **line)
 {
-	static char     *arr[OPEN_MAX];
+	static char		*arr[OPEN_MAX];
 	char			*buf;
 
 	if (fd < 0 || line == NULL || BUFFER_SIZE <= 0)

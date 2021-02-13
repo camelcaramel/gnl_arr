@@ -6,7 +6,7 @@
 /*   By: donghwik <donghwik@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 23:33:51 by donghwik          #+#    #+#             */
-/*   Updated: 2021/02/13 15:40:04 by donghwik         ###   ########.fr       */
+/*   Updated: 2021/02/13 15:43:44 by donghwik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,6 @@ int		cut_set(char **arr, int index, char **line, int fd)
 	while (++i < len - index - 1)
 		node_temp[i] = arr[fd][i + index + 1];
 	node_temp[i] = '\0';
-	// temp = arr[fd];
-	// arr[fd] = node_temp;
-	// free(temp);
 	flush_arr(arr, fd, node_temp);
 	return (1);
 }
